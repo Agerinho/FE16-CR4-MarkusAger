@@ -1,0 +1,31 @@
+.pink {
+    background-color: red;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: block;
+    }
+}
+
+.navbar-dark .navbar-toggler {
+    border: none;
+}
+
+.hero {
+    height: 50vh;
+    background-image: url(/img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    h1 {
+        background-color: rgba($color: #000000, $alpha: .5);
+    }
+}
+
+.card-img-top {
+    height: 300px;
+}
+
+.form-control {
+    width: 25%
+}

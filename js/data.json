@@ -1,0 +1,44 @@
+let tasks = `[
+    {
+        "taskName": "shopping",
+        "image": "img/groceries.jpg",
+        "description": "Shop for weekly groceries at Billa and Hofer.",
+        "importance": 0,
+        "deadline": "03.06.2022"
+    },
+    {
+        "taskName": "bug fixing",
+        "image": "img/dev.jpg",
+        "description": "Mobile bug fixing.",
+        "importance": 0,
+        "deadline": "03.06.2022"
+    },
+    { 
+        "taskName": "car insurance",
+        "image": "img/insurance.jpg",
+        "description": "sign the documents and send them to the insurance",
+        "importance": 0,
+        "deadline": "07.06.2022"
+    },
+    {
+        "taskName": "buy new graphics card",
+        "image": "img/graphicscard.jpg",
+        "description": "if you have left some money buy a new graphics card",
+        "importance": 0,
+        "deadline": "24.12.2022"
+    },
+    {
+        "taskName": "pet dogs from neighbour",
+        "image": "img/dogpetting.jpg",
+        "description": "Saturday evening from 6pm until 9pm",
+        "importance": 0,
+        "deadline": "04.06.2022"
+    },
+    {
+        "taskName": "call with agency",
+        "image": "img/agencycall.jpg",
+        "description": "call with with the agency over future projects",
+        "importance": 0,
+        "deadline": "10.06.2022"
+    }
+]`
