@@ -1,12 +1,13 @@
 const tasksList = JSON.parse(tasks)
 const taskslistContainer = document.querySelector(".tasks")
-printTasks = () => {
+
+const printTasks = () => {
 
     taskslistContainer.innerHTML = "";
     tasksList.forEach((task) => {
         taskslistContainer.innerHTML += `
         <div class="col mb-4">
-            <div class="card h-100 shadow">
+            <div class="card h-100 shadow animate__animated animate__fadeIn">
                 <div class="card-head p-3 d-flex justify-content-between">
                     <span class="bg-info text-white px-2 py-1 rounded">Task</span>
                     <div class="">
@@ -48,34 +49,60 @@ printTasks = () => {
     });
 };
 
-printTasks()
 const increasePriority = () => {
     const priorityBtn = document.querySelectorAll(".priorityBtn")
     priorityBtn.forEach((btn, i) => {
         btn.addEventListener("click", () => {
             tasksList[i].importance++
             btn.innerHTML = tasksList[i].importance
-            if (tasksList[i].importance <= 2) {
-                console.log("importance is med: " + tasksList[i].importance)
-                btn.classList.remove("btn-danger", "btn-success")
-                btn.classList.add("btn-warning")
-            } else if (tasksList[i].importance >= 3) {
-                console.log("importance danger!: " + tasksList[i].importance)
-                btn.classList.remove("btn-warning", "btn-success")
-                btn.classList.add("btn-danger")
-            }
-            if (tasksList[i].importance == 6) {
-                tasksList[i].importance = 0
-                btn.innerHTML = tasksList[i].importance
-                btn.classList.remove("btn-warning", "btn-danger")
-                btn.classList.add("btn-success")
-            }
+            priorityColor()
         })
+
     })
 }
 
-increasePriority()
+const priorityColor = () => {
+    const priorityBtn = document.querySelectorAll(".priorityBtn")
+    priorityBtn.forEach((btn, i) => {
+        if (tasksList[i].importance == 0) {
+            btn.classList.remove("btn-danger", "btn-warning")
+            btn.classList.add("btn-success")
+        }
+        else if (tasksList[i].importance <= 2) {
+            btn.classList.remove("btn-danger", "btn-success")
+            btn.classList.add("btn-warning")
+        } else if (tasksList[i].importance >= 3) {
+            btn.classList.remove("btn-warning", "btn-success")
+            btn.classList.add("btn-danger")
+        }
+        if (tasksList[i].importance == 6) {
+            tasksList[i].importance = 0
+            btn.classList.remove("btn-warning", "btn-danger")
+            btn.classList.add("btn-success")
+            btn.innerHTML = tasksList[i].importance
+        }
+    })
+}
 
 const sortTasks = () => {
-    console.log("sort button clicked")
+    var icon = document.getElementById("sortIcon")
+
+    if (icon.className === "bi bi-sort-up") {
+        icon.className = "bi bi-sort-down";
+        tasksList.sort(function (a, b) {
+            return b.importance - a.importance
+        });
+    } else {
+        icon.className = "bi bi-sort-up";
+        tasksList.sort(function (a, b) {
+            return a.importance - b.importance
+        });
+    }
+    console.log(tasksList)
+    printTasks()
+    increasePriority()
+    priorityColor()
 }
+
+printTasks()
+increasePriority()
